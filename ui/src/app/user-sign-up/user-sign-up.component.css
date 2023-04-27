@@ -1,0 +1,16 @@
+:required  {  
+    background: url("../../assets/asterisk.svg") no-repeat;
+    background-position:99% 10%;
+    background-size: 10px 10px;
+}
+
+.invalid-feedback{
+    display: none;
+}
+
+.warning{
+    background-color:white;
+    margin: 120px 300px 0 300px;
+    padding: 100px; 
+    border: none;
+}

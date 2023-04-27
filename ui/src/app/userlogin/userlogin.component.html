@@ -1,0 +1,184 @@
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<div class="app-body">
+  <main class="main">
+    <div *ngIf="isLoggedIn === 'false'">
+      <div class="m-1" style="overflow: hidden; height: 99vh; background-color: white">
+        <div class="container shadow p-3 mb-5 bg-white rounded mw-50">
+          <div style="display: flex; flex-direction: row">
+            <div class="container row">
+              <img src="../../assets/user.png" style="margin-left: 43%; margin-top: 12%; width: 10vw" alt="img" />
+            </div>
+          </div>
+          <span class="text-center mt-3" style="margin-left: 37%; font-size: 2vw">Sign in to Online Ide</span>
+
+          <form action="#">
+            <div class="wrapper">
+              <div class="form">
+                <!-- Email -->
+                <div class="inputfield">
+                  <label class="label"><b>Email</b></label>
+                </div>
+                <div class="input-group mb-4">
+                  <input required="required" id="email" type="text" name="email" [(ngModel)]="emailAddress"
+                    (blur)="onEmailNameChange($event.target.value)" placeholder="Email" class="form-control"
+                    style="width: 50vw; height: auto" />
+                </div>
+
+                <!-- Password -->
+                <div class="inputfield">
+                  <label for="password" class="label"><b>Password</b></label>
+
+                  <div class="pt-2 ms-auto">
+                    <a class="pt-2" routerLink="/reset_password" style="
+                        cursor: pointer;
+                        color: royalblue;
+                        font-weight: bold;
+                      ">Forgot Password</a>
+                  </div>
+                </div>
+
+                <div class="input-group mb-4">
+                  <input required="required" id="password" type="password" name="password" [(ngModel)]="password"
+                    placeholder="Password" (blur)="onPasswordChange($event.target.value)" class="form-control"
+                    style="width: 50vw; height: auto" />
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-group">
+                  <span class="btn btn-success btn-block font-weight-bold mt-3" (click)="login()">Sign in</span>
+                </div>
+
+                <div class="form-group border pt-2 row mt-5" style="
+                    background-color: white;
+                    height: 6vh;
+                    width: 100%;
+                    text-align: center;
+                  ">
+                  <label class="pt-2">New to Online-Ide?
+                    <a class="pt-2" id="signUp" routerLink="/sign-up" style="cursor: pointer; color: gray">Create an
+                      account</a></label>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isLoggedIn === 'true'">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand px-2" href="#">Online Ide</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav ms-auto me-1">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="assets/person.svg" class="change-my-color" style="height: 30px; color: aquamarine" />
+              </a>
+              <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="#">Profile Settings</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="row"></div>
+      <div class="row border-1" style="padding-right: 10px; padding-left: 10px">
+        <div class="col-lg-7 col-md-7">
+          <div class="card ui_wrapper" [ngStyle]="{ height: '86vh' }" style="
+              margin-right: -10px;
+              overflow: auto;
+              resize: vertical;
+              overflow: hidden;
+              width: 100%;
+              border: 1px solid darkgrey;
+            ">
+            <div class="card-header">
+              <ul class="nav nav-tabs navbar-nav bd-navbar-nav flex-row card-header-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active px-2">CodeEditor</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link px-2">Upload Program</a>
+                </li>
+
+                <li class="ms-auto nav-item ml-md-auto d-none d-md-flex">
+                  <label class="mt-2" style="padding-right: 10px">Language</label>
+                  <div style="padding-right: 10px">
+                    <select class="form-select w-60" aria-label="Default select example">
+                      <option>Java</option>
+                      <option selected>Python</option>
+                    </select>
+                  </div>
+                  <div class="ms-auto" style="padding: left 10px">
+                    <button type="button" (click) = "compile()" class="pl-1 btn btn-secondary">
+                      Compile  
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card-body" style="
+                resize: vertical;
+                overflow: auto;
+                width: 100.1%;
+                margin-right: 2px;
+              ">
+              <app-editor  (updatedData)="updateCode($event)"> </app-editor>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-5" style="height: 86vh">
+          <div class="card" style="
+              resize: vertical;
+              overflow: auto;
+              height: 86vh;
+              width: 100%;
+              border: 1px solid darkgrey;
+            ">
+            <div class="card-header">
+              <ul class="nav nav-tabs navbar-nav bd-navbar-nav flex-row card-header-tabs">
+                <li class="nav-item">
+                  <label class="nav-link active px-2">Output</label>
+                </li>
+
+                <li class="ms-auto nav-item ml-md-auto d-none d-md-flex">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" [(checked)]="interactive"
+                      (change)="interactive=!interactive" id="flexSwitchCheckDefault" />
+                    <label class="form-check-label ms-3">Interactive</label>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="card-header-actions"></div>
+            </div>
+            <div *ngIf="interactive" class="card-body" style="overflow: auto">
+              <app-terminal> </app-terminal>
+            </div>
+            <div *ngIf="!interactive" class="card-body" [(ngModel)]="output" [contentEditable]="false">
+               {{output}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="animated fadeIn">
+      <div class="" style="background-color: white"></div>
+    </div>
+  </main>
+</div>

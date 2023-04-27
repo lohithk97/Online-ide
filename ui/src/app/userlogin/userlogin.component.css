@@ -1,0 +1,247 @@
+*{
+    margin: 2;
+    padding: 2;
+    box-sizing: border-box;
+  }
+  
+
+  .wrapper{
+    max-width: 500px;
+    width: 100%;
+    height: 100%;
+    max-height: 270px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fafafa;
+  }
+  
+  .wrapper.form {
+    width: 100%;
+  }
+  
+  .wrapper .form .inputfield{
+    margin-bottom: 1px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .wrapper .form .inputfield label{
+    width: 300px;
+    color:black;
+    margin-right: 10px;
+   font-size: 14px;
+  }
+  
+  .hide{
+      display: none;
+  }
+  .cursor-click{
+      cursor: pointer;
+  }
+  
+  input {
+      width: 30px;
+  }
+  
+  .card {
+      margin-bottom: 0;
+  }
+  
+  .dropdown {
+      position: relative;
+      display: inline-block;
+  }
+  
+  .dropdown-content {
+      margin-top: 1px;
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+  }
+  
+  .dropdown-content:hover {
+      padding: 0px;
+  }
+  
+  .dropdown-content a {
+      color: black;
+      text-decoration: none;
+      display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .button {
+      background-color: white;
+      border: none;
+      padding: 6px 6px 6px 6px;
+  }
+  
+  button:focus { outline: none; }
+  
+  .button:hover {
+      background-color: lightgray;
+      padding: 7px 7px 7px 7px;
+      border-radius: 4px;
+  }
+  
+  label.import {
+      margin-top: 10px;
+  }
+  
+  /* app-footer:hover {
+      display: none;
+  } */
+  
+  .fa-check {
+      color: #00b300;
+  }
+  
+  .is-selectInvalid {
+      border-color: #dc3545;
+      padding-right: calc(1.5em + 0.75rem);
+      background-repeat: no-repeat;
+      background-position: right calc(0.375em + 0.1875rem) center;
+      background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  }
+  
+  .fa {
+      font-size: xx-large;
+  }
+  
+  .custom-control-label {
+      margin-top: 8px;
+      margin-left: 10px;
+  }
+  
+  .icon-new{
+      font-size: 20px;
+      line-height: 0px;
+  }
+  
+  .alert-container{
+      float: right;
+      max-width: 90%;
+  }
+  
+  h2 {
+      font-size: 30px;
+  }
+  
+  :required  {
+      background: url("../../assets/user.png") no-repeat;
+      background-position:99% 10%;
+      background-size: 10px 10px;
+      background-color: rgb(221, 232, 247);
+  }
+  
+  @media (max-width:600px) {
+      h2.responsive {
+          font-size: 24px;
+      }
+  }
+  
+  
+  .warningMessage {
+      position:absolute;
+      right: 9%;
+  }
+  
+  
+  .toggler {
+      position:absolute;
+      right:3.5%;
+  }
+  
+  .alertClass{
+      margin-left: 5%;
+      font-size: 30px;
+      width: 100%;
+      text-align: center;
+  }
+  
+  .alert {
+      margin-bottom: 0rem;
+  }
+  
+  button{
+    margin-right: 10px;
+  }
+  
+  .input-group-prepend{
+      height: 35px;
+  }
+  
+  .icon{
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 0px;
+  }
+  
+  .margin-left-0{
+      margin-left: 0px;
+  }
+  
+  .add-icon{
+      font-weight: 800;
+      font-size: 50px;
+      line-height: 0px;
+      cursor: pointer;
+  }
+  
+  .form-check{
+      cursor: pointer;
+  }
+  
+  :required  {
+      background: url("../../assets/asterisk.svg") no-repeat;
+      background-position:99% 10%;
+      background-size: 10px 10px;
+  }
+  
+  .invalid-feedback{
+      display: none;
+  }
+  
+  hr {
+      border: 1px solid grey;
+  }
+  
+  .form-check-input {
+      position: absolute;
+      margin-top: 0.7rem;
+      margin-left: -1.25rem;
+  }
+  
+  .form-check-label {
+      margin-bottom: 0;
+      margin-right: 15px;
+      margin-top: 0.4rem;
+  }
+  .textarea-width{
+      width: 100%;
+      height: 300px;
+  }
+  
+  .modal-dialog {
+      max-width: 800px;
+  }
+  /* .main .container-fluid{
+      padding-left: 5px;
+      padding-right: 5px;
+  } */
+  
+  @media all and (min-width: 768px) {
+      tr td {
+          vertical-align: middle !important;
+     }
+      tr span:not([class]) {
+          padding: 1rem 1rem;
+     }
+  }
+  

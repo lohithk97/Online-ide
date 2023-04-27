@@ -1,0 +1,114 @@
+<div>
+    <div class="row " >
+        <div class="col-sm-3">
+
+        </div>
+        <div class=" col-sm-6">
+
+            <div class="card border-0">
+                <div *ngIf="isValid" class="row  align-items-center " style="padding-top: 2%;">
+                    <div class="container shadow p-3 mb-5 bg-white rounded">
+                    
+                        <label class ="ps-2"style=" height: 1vh;font-size: 3vw;">Create your account</label>
+                        <form action="#">
+                            <div class="container mt-3" style="background-color: #fafafa;  ">
+                                <div class="row ms-1 me-1 pt-5 w-98">
+                                  
+                
+                                    <div class="text-start col-sm-12">
+                                        <p class="text-muted font-weight-bold"><sup><img src="../../assets/asterisk.svg" alt="asterisk"
+                                                    height="10px" width="10px"></sup> indicates a required field</p>
+                                    </div>
+                
+                                    <!-- FirstName -->
+                                    <div class="input-group mb-4">
+                                        <label class="ms-1 mt-3"><b> Username</b></label>
+                                        <div class="input-group-prepend w-100">
+                                            <input id="firstName"  type="text" required="required" name="firstname"
+                                                [ngClass]="firstName.disabled == false ? 'form-control bg-white border-md' : 'is-invalid' "
+                                                (blur)="onFirstNameChange($event.target.value)" placeholder=""
+                                                class="form-control bg-white border-md">
+                                        </div>
+                                        <div *ngIf="firstName.disabled == true" class="text-danger">
+                                            <small>please enter name</small>
+                                        </div>
+                                    </div>
+                
+                                  
+                
+                                    <!-- Email Address -->
+                                    <div class="input-group col-sm-12 mb-4">
+                                        <label class="ms-1 mt-3"><b>Email address</b></label>
+                                        <div class="input-group-prepend w-100" *ngIf = "activate">
+                                            <input readonly id="email" type="email" name="email" required="required"
+                                                placeholder="Email Address" [(ngModel)]="userObject.email"
+                                                class="form-control bg-white border-left-0 border-md w-100">
+                                        </div>
+                                        <div class="input-group-prepend w-100" *ngIf = "!activate">
+                                            <input id="email" type="email" style="width: 100%;" name="email" required="required"
+                                                [ngClass]="email.disabled == false ? 'form-control bg-white border-md' : 'is-invalid'"
+                                                (blur)="onEmailChange($event.target.value)"
+                                                placeholder="Email Address" class="form-control bg-white border-left-0 border-md">
+                                        </div>
+                                        <div *ngIf="email.disabled == true" class="text-danger">
+                                            please provide email
+                                        </div>
+                                    </div>
+                
+                                    <!-- Password -->
+                                    <div class="input-group col-sm-12 mb-4">
+                                        <label class="ms-1 mt-3"><b>Password</b></label>
+                                        <div class="input-group-prepend w-100">
+                                            <input id="password" type="password" style="width: 100%;" required="required"
+                                                name="password" placeholder="Password"
+                                                [ngClass]="password.disabled == false ? 'form-control bg-white border-md' : 'is-invalid'    "
+                                                (blur)="onPassWordChange($event.target.value)"
+                                                class="form-control bg-white border-left-0 border-md">
+                                        </div>
+                                        <div *ngIf="password.disabled == true" style="font-size: smaller;" class="text-danger">
+                                            password must be atleast 8 characters long and contain atleast one number or alphabet
+                                        </div>
+                                    </div>
+                
+                                    <!-- Password Confirmation -->
+                                    <div class="input-group col-sm-12 mb-4">
+                                        <label class="ms-1 mt-3"><b>Confirm password</b></label>
+                                        <div class="input-group-prepend w-100">
+                                            <input id="passwordConfirmation" style="width: 100%;" type="password" required="required"
+                                                name="passwordConfirmation"
+                                                [ngClass]="rePassword.disabled == false ? 'form-control bg-white border-left-0 border-md' : 'is-invalid'"
+                                                (keyup)="onRePasswordChange($event.target.value)" placeholder="Confirm Password"
+                                                class="form-control bg-white border-left-0 border-md">
+                                        </div>
+                                        <div *ngIf="rePassword.disabled == true" style="font-size: smaller;" class="text-danger">
+                                            passwords are not matching
+                                        </div>
+                                        <div *ngIf="rePassword.value == password.value && rePassword.value != ''"
+                                            style="font-size: smaller;" class="text-success">
+                                            passwords match
+                                        </div>
+                                    </div>
+                
+                                    <!-- Sign Up Submit Button -->
+                                    <div class="form-group col-lg-12 mx-auto pb-3 mt-2">
+                                        <span class="btn btn-primary btn-block py-2 font-weight-bold" (click)="createAccount()">Create
+                                            Account</span>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="form-group pt-2 row mx-4 my-1 align-items-center" style="background-color: white; height: 6vh; margin-left: 27%; width: 30vw;">
+                                <label c >Already a member?   <a id="signUp" routerLink="/sign-in" style="cursor: pointer; color:royalblue;">Sign in</a></label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+            
+            </div>
+        </div>
+        <div class=" col-sm-3">
+
+        </div>
+    </div>
+</div>
